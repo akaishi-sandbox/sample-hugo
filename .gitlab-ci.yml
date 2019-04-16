@@ -1,0 +1,10 @@
+image: registry.gitlab.com/pages/hugo:latest
+
+pages:
+  stage: deploy
+  environment: production
+  script:
+    - hugo
+  artifacts:
+    paths:
+      - public
