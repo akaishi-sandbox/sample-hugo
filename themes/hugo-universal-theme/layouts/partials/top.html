@@ -7,8 +7,13 @@
       </div>
       <div class="col-xs-7">
         <div class="social">
-          {{ range .Site.Menus.topbar.ByWeight }}
-          <a href="{{ .URL }}" target="_blank" style="opacity: 1;">{{ .Pre }}</a>
+          {{ range.Site.Menus.topbar.ByWeight }}
+          <a
+            href="{{ .URL }}"
+            target="_blank"
+            style="opacity: 1;"
+            >{{ .Pre }}</a
+          >
           {{ end }}
         </div>
       </div>
