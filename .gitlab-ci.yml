@@ -1,10 +1,18 @@
-image: registry.gitlab.com/pages/hugo:latest
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SSL_NO_VERIFY: "true"
 
-pages:
+stages:
+  - deploy
+
+deploy:
   stage: deploy
-  environment: production
+  image: nohitme/hugo-firebase
   script:
+    # build site
+    - cd ${CI_PROJECT_DIR}
     - hugo
-  artifacts:
-    paths:
-      - public
+    # upload
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --token ${FIREBASE_TOKEN} --only hosting
+  only:
+    - master
