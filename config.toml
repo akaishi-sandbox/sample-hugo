@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://sample-hugo.firebaseapp.com"
 languageCode = "jp-ja"
 title = "My New Hugo Site"
 theme = "hugo-universal-theme"
